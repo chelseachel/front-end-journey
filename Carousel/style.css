@@ -1,0 +1,20 @@
+body {
+  
+  /* display: flex; */
+}
+#container {
+  padding:20px;
+  border: 2px solid #ccc;
+  position: relative;
+  overflow: hidden;
+  /* flex-grow: 1; */
+}
+/* #list {
+  width: 8120px; 
+  height: 772px; 
+  position: absolute; 
+  z-index: 1;
+} */
+#list img {
+  float: left;
+}

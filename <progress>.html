@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>进度条animation</title>
+    <style>
+    /*.loading {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background: #fff;
+    }
+
+    .loading .pic {
+        width: 100%;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #F33;
+        animation: process 2s 1;
+        transform-origin: 0 50%; 
+        animation-fill-mode: forwards;
+    }*/
+
+    progress {
+        width: 100%;
+        height: 15px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        color: #f33;
+        /*IE10*/
+    }
+
+    progress::-webkit-progress-bar {
+        background: transparent;
+    }
+
+    progress::-webkit-progress-value {
+        background: #f33;
+    }
+
+    progress::-moz-progress-bar {
+        background: #f33;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="loading">
+        <progress value="2" max="100" id="bar">
+        </progress>
+    </div>
+    <img src="http://img.hb.aicdn.com/711d5c2002d9b10685b2477982ee8ed494d982961c581b-4KZsyX" alt="">
+    <img src="http://img.hb.aicdn.com/e15c3fe1ffe4b016b571bd0df7b7a6adf3ffe5947d191-YPFxtJ" alt="">
+    <img src="http://img.hb.aicdn.com/b429cad2b18d4226b42b77348276e30494bed3891d627-OiItMK" alt="">
+    <img src="http://img.hb.aicdn.com/a3a2cb30d9c5d049602fad0b3c46372cd4959f5016020-0fTQ7p" alt="">
+    <img src="http://img.hb.aicdn.com/e0f216f7da901ac9b8745588d2719b476d1c98ca12303-TUDwtH" alt="">
+    <img src="http://img.hb.aicdn.com/54c7503b0345bf235ad75ab5bf8540acd0b5de82a09ae-RQnozh" alt="">
+    <img src="http://img.hb.aicdn.com/adc82599eabf88a7ba6f252db1f625244f4869aed555-5PUKg3" alt="">
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    var setProgress = function() {
+        var current; 
+        current = $("#bar").val();
+        $("#bar").val(current + 1);
+        if (current == 100) {
+            $("progress").delay(500).fadeOut();
+        }
+    }
+
+    
+
+    var timer = setInterval("setProgress()", 15);
+console.log(current);
+
+    //     setTimeout(function(){
+    //     $("progress").fadeOut()
+    // }, 500);
+
+    </script>
+</body>
+
+</html>

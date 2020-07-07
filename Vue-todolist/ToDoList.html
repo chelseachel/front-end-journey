@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDoList</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <div>
+      <input v-model="inputValue"/>
+      <button @click="handleSubmit">提交</button>
+    </div>
+    <ul>
+      <!-- <li v-for="(item, index) of list" :key="index">
+        {{item}}
+      </li> -->
+      <li is="todo-item" 
+        v-for="(item, index) of list"
+        :key="index"
+        :content="item"
+        :index="index"
+        @delete="handleDelete"> <!-- 监听delele事件，一旦监听到子组件向外触发delete事件，父组件即会执行handleDelete方法 -->
+        </li>
+    </ul>
+  </div>
+
+  <script type="text/javascript">
+
+
+    Vue.component('todo-item', {
+      props: ['content', 'index'],
+      template: '<li @click="handleClick">{{content}}</li>',
+      methods: {
+        handleClick: function() {
+          this.$emit('delete', this.index)//向外触发delete事件
+        }
+      }
+    })
+
+
+    new Vue({
+      el: "#root",
+      data: {
+        inputValue: '',
+        list: [],
+      },
+      methods: {
+        handleSubmit: function() {
+          this.list.push(this.inputValue)
+          this.inputValue = ''
+        },
+        handleDelete: function(index) {
+          this.list.splice(index, 1)//list里，删除所点击的子组件对应下标的子组件数据，第一个参数表示自此位置删除，第二个参数表示删除1个
+        }
+      }
+    })
+  </script>
+</body>
+</html>

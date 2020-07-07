@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pacman - Switch Color</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+  <div class="container">
+  <div class="pacman">
+    <div>
+      <div class="beans"></div>
+      <div class="beans"></div>
+      <div class="beans"></div>
+    </div>
+    <!--   beans -->
+    <div>
+      <div class="mouth"></div>
+      <div class="mouth"></div>
+    </div>
+    <!--   mouth -->
+  </div>
+  <!-- 按文档流顺序，后面会覆盖前面的 -->
+  
+  <div class="box">
+    <div class="edit">
+      <p>Switch Color</p>
+      <input id="hex" maxlength="7" type="text" value="#dcd28f" oninput="changeHex()">
+    </div>
+    <div class="holder">
+      <span id="sample"></span>
+      <div class="fold">
+        </div>
+    </div>
+    <div id="picker-wrapper">
+    <div class="picker">
+      <div class="col" style="background-color: #dcd28f"></div>
+      <div class="col" style="background-color: #ffda79"></div>
+      <div class="col" style="background-color: #ffb142"></div>
+      <div class="col" style="background-color: #ff5252"></div>
+      <div class="col" style="background-color: #38ada9"></div>
+      <div class="col" style="background-color: #006266"></div>
+      <div class="col" style="background-color: #4a69bd"></div>
+      <div class="col" style="background-color: #706fd3"></div>
+      <div class="col" style="background-color: #0a3d62"></div>
+      <div class="col" style="background-color: #cd6133"></div>
+      <div class="col" style="background-color: #d1ccc0"></div>
+      <div class="col" style="background-color: #aaa69d"></div>  
+    </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="./script.js"></script>
+</body>
+</html>

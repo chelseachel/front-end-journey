@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-if, v-show与v-for指令</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+  <div>
+    <ul id="v-for-object" class="demo">
+  <li v-for="(value, key, index) in object">
+    {{value}}{{key}}{{index}}
+  </li>
+</ul>
+  </div>
+  </div>
+</body>
+
+<script type="text/javascript">
+  new Vue({
+  el: '#v-for-object',
+  data: {
+    object: {
+      title: 'How to do lists in Vue',
+      author: 'Jane Doe',
+      publishedAt: '2016-04-10'
+    }
+  }
+})
+</script>
+</html>

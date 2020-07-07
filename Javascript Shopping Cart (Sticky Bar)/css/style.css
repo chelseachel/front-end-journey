@@ -1,0 +1,289 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+a {
+  color: #666;
+  text-decoration: none;
+}
+body {
+  padding: 20px;
+  color: #666;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.check, label { 
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+  width: 990px;
+  margin: 0 auto;
+}
+thead {
+  border-top: 1px solid #FF5500;
+  background: #fafafa;
+}
+th {
+  height: 50px;
+  font-weight: normal;
+}
+td {
+  height: 100px;
+  padding: 10px;
+  color: #444;
+}
+tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+.checkbox {
+  width: 60px;
+}
+.goods {
+  width: 450px;
+}
+.goods-img {
+  width: 80px;
+  height: 80px; 
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  margin: 10px;
+  float: left;
+} 
+img {
+  max-width: 80px;
+  max-height: 80px;
+  /* 图片在容器内水平垂直居中 */
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.goods span {
+  width: 180px;
+  max-height: 36px;
+  overflow: hidden;
+  margin-top: 30px;
+  text-align: left;
+  float: left;
+}
+.goods span:hover {
+  color: #FF5500;
+}
+.price {
+  width: 120px;
+}
+.count {
+  width: 120px;
+}
+.count .add,
+.count input,
+.count .minus {
+  float: left;
+  margin-right: -1px;
+  position: relative;
+  z-index: 0;
+}
+.count .add {
+  height: 23px;
+  width: 17px;
+  border: 1px solid #eaeaea;
+  background: #f0f0f0;
+  text-align: center;
+  line-height: 23px;
+  color: #444;
+}
+.count .no-reduce {
+  height: 23px;
+  width: 17px;
+  border: 1px solid #eaeaea;
+  background: #f0f0f0;
+  text-align: center;
+  line-height: 23px;
+  color: #eaeaea;
+}
+.count .reduce {
+  height: 23px;
+  width: 17px;
+  border: 1px solid #eaeaea;
+  background: #f0f0f0;
+  text-align: center;
+  line-height: 23px;
+  color: #444;
+}
+.count .add:hover,
+.count .reduce:hover {
+  color: #f50;
+  z-index: 3;
+  border-color: #f50;
+  cursor: pointer;
+}
+.count input {
+  width: 50px;
+  height: 23px;
+  line-height: 23px;
+  border: 1px solid #ccc;
+  color: #343434;
+  text-align: center;
+  background-color: #fff;
+  z-index: 2;
+}
+.subtotal {
+  width: 120px;
+  color: #ff5500;
+  font-weight: bold;
+}
+.operation {
+  width: 120px;
+}
+.operation span:hover,
+a:hover {
+  cursor: pointer;
+  color: #ff5500;
+  text-decoration: underline;
+}
+
+.foot {
+  width: 990px;
+  margin: 16px auto 0 auto;
+  color: #666;
+  height: 50px;
+  line-height: 50px;
+  background-color: #eaeaea;
+  position: sticky;
+  bottom: 0;
+  z-index: 8;
+  text-align: center;
+}
+.foot .select-all {
+  width: 80px;
+  height: 50px;
+  color: #666;
+}
+.foot a {
+  width: 100px;
+  height: 50px;
+}
+.foot .total {
+  width: 100px;
+  height: 50px;
+  margin: 0 40px;
+  height: 50px;
+  cursor: pointer;
+}
+.foot .closing {
+  border-left: 1px solid #fff;
+  width: 120px;
+  height: 50px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  background: RGB(238, 238, 238);
+  cursor: pointer;
+}
+.foot .closing:hover {
+  color: #fff;
+  background: #f50;
+}
+.foot .selected {
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+}
+.foot #priceTotal,
+.foot #selectedTotal {
+  color: #ff5500;
+  font-weight: bold;
+}
+.foot .selected .arrow {
+  width: 0; 
+  height: 0; 
+  position: relative;
+  top: -3px;
+  margin-left: 3px;
+}
+.foot .selected .down {
+  position: relative;
+  top: 3px;
+  display: none;
+}
+.show .selected .down {
+  display: inline;
+}
+.show .selected .up {
+  display: none;
+}
+.foot .selected:hover .arrow {
+  color: #ff5500;
+}
+.foot .selected-view {
+  width: 990px;
+  box-sizing: border-box;
+  border: 1px solid #c8c8c8;
+  position: absolute;
+  height: 120px;
+  padding: 9px 40px;
+  background: #ffffff;
+  z-index: 999;
+  bottom: 50px;
+  display: none; 
+  overflow: hidden;
+}
+.show .selected-view {
+  display: block;
+}
+.foot .selected-view .arrow {
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  transform-origin: 4px 4px;
+  background: #ffffff;
+  box-sizing: border-box;
+  border-right: 1px solid #c8c8c8;
+  border-bottom: 1px solid #c8c8c8;
+  position: absolute;
+  right: 56px;
+  bottom: -5px;
+}
+.selectedViewList {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.selectedViewList div {
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+}
+.selectedViewList div div {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+.selectedViewList div div span {
+  display: none;
+  position: absolute; /* 相对于static定位以外的第一个父元素进行定位，因此要将其父元素设定position: relative; */
+  top: 0px;
+  right: 0px;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 0 2px;
+  color: #ffffff;
+  background: RGBA(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.selectedViewList div div:hover span {
+  display: block;
+}
+

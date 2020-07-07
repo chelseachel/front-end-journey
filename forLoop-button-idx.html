@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+ </head>
+ <body>
+    <button >点击1</button>
+    <button >点击2</button>
+    <button >点击3</button>
+    <button >点击4</button>
+    <button >点击5</button>
+
+    <script>
+    window.onload=function(){
+        var oButton = document.getElementsByTagName("button");
+        var num = 0;
+        for(var i=0; i<oButton.length; i++){
+            oButton[i].onclick=(function(idx){
+                return function(){
+                    console.log(idx + 1);
+                    oButton[num].style.background="#ccc";
+                    num=idx;
+                    this.style.background="#ff0000";
+                }
+            })(i);//此括号是指调用了这个函数，并传入参数i。
+        }
+    }
+
+
+    // for (var i = 0; i<5; ++i){
+    // setTimeout(function(){
+    //     console.log(i)
+    // }, 1000);
+    // }   
+    //错误示例。
+// 因为js没有块作用域的概念，循环var的i，直到循环结束还在整个作用域之内，而当click事件触发的时候，循环早就结束了，i的值只能是最大值，所以总是得到5。
+
+    </script>
+ </body>
+ </html>

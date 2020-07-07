@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDoList</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <div>
+      <input v-model="inputValue"/>
+      <button @click="handleSubmit">提交</button>
+    </div>
+    <ul>
+      <!-- <li v-for="(item, index) of list" :key="index">
+        {{item}}
+      </li> -->
+      <li is="todo-item" 
+        v-for="(item, index) of list"
+        :key="index"
+        :content="item"
+        ></li>
+    </ul>
+  </div>
+
+  <script type="text/javascript">
+
+    // 局部组件（必须在实例中通过components对此局部组件进行注册）：
+    var TodoItem = {
+      props: ['content'],
+      template: '<li>{{content}}</li>'
+    }
+
+    new Vue({
+      el: "#root",
+      components: {
+        'todo-item': TodoItem
+      },
+      data: {
+        inputValue: '',
+        list: [],
+      },
+      methods: {
+        handleSubmit: function() {
+          this.list.push(this.inputValue)
+          this.inputValue = ''
+        }
+      }
+    })
+  </script>
+</body>
+</html>

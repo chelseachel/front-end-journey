@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片懒加载</title>
+    <style>
+        img {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img data-src="./images/1.jpg" alt="">
+        <img data-src="./images/2.jpg" alt="">
+        <img data-src="./images/3.jpg" alt="">
+        <img data-src="./images/4.jpg" alt="">
+        <img data-src="./images/5.jpg" alt="">
+        <img data-src="./images/6.jpg" alt="">
+        <img data-src="./images/7.jpg" alt="">
+        <img data-src="./images/8.jpg" alt="">
+        <img data-src="./images/9.jpg" alt="">
+        <img data-src="./images/10.jpg" alt="">
+        <img data-src="./images/11.jpg" alt="">
+        <img data-src="./images/12.jpg" alt="">
+    </div>
+</body>
+<script>
+    // 两个重点，一个是元素到各个边距的距离，二个就是判断元素是否在可视区域内。
+
+    var imgs = document.querySelectorAll('img');
+
+    //用来判断bound.top<=clientHeight的函数，返回一个bool值
+    function isIn(el) {
+        var bound = el.getBoundingClientRect(); // Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置。
+        var clientHeight = window.innerHeight; // 获取可视区域高度，浏览器兼容性问题
+        return bound.top <= clientHeight;
+    } 
+    //检查图片是否在可视区内，如果不在，则加载
+    function check() {
+        Array.from(imgs).forEach(function(el){
+            if(isIn(el)){
+                loadImg(el);
+            }
+        })
+    }
+    function loadImg(el) {
+        if(!el.src){
+            var source = el.dataset.src;
+            el.src = source;
+        }
+    }
+    window.onload = window.onscroll = function () { //onscroll()在滚动条滚动的时候触发
+        check();
+    }
+    
+</script>
+</html>
